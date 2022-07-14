@@ -1,13 +1,10 @@
-﻿using System.Net.Http.Headers;
-using System.Text;
-using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
-using DevOps.AutomatedActions.Api.Domain.PullRequest;
+﻿using System.Text.Json;
 using DevOps.AutomatedActions.Api.Domain.PullRequest.Webhook;
 using DevOps.AutomatedActions.Api.Queries;
 using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Pull_Request_Api.Controllers
+namespace DevOps.AutomatedActions.Api.Controllers
 {
     [Route("api/[controller]/[action]")]
     [ApiController]
@@ -35,6 +32,8 @@ namespace Pull_Request_Api.Controllers
             await _mediator.Send(new AddReviewerHandler.Query(pullRequestData));
             return Ok("Looks good!");
         }
+        
+        
     }
 
 }
